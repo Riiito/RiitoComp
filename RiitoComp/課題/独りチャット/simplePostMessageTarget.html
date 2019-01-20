@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta charset="utf-8" />
+  <script type="text/javascript">
+
+  function onMessage(e) {
+    if (e.origin !== "http://localhost:60132") {
+      document.getElementById("output").innerHTML = 'メッセージを無視: ' + e.origin;
+    } else {
+      document.getElementById("output").innerHTML = e.origin + " から受信: " + e.data;
+    }
+  }
+
+  window.addEventListener("message", onMessage, false);
+  </script>
+</head>
+<body>
+  <p>メッセージ</p>
+  <div id="output"></div>
+</body>
+</html>

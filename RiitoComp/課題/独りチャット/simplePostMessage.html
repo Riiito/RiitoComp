@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta charset="utf-8" />
+  <script type="text/javascript">
+
+    function onButtonClick(e) {
+      if (e.preventDefault) e.preventDefault();
+      var win = document.getElementById("iframe").contentWindow;
+      win.postMessage(document.getElementById("Text1").value, "http://localhost:60132");
+      e.returnValue = false;
+      return false;
+    }
+    function PageLoad() {
+      document.getElementById("Button1").addEventListener("click", onButtonClick, false);
+    }
+
+  </script>
+</head>
+<body onload="PageLoad();">
+  <iframe id="iframe" src="SimplePostMessageTarget.html"></iframe>
+  <br/>
+  <input id="Text1" type="text" /><br/>
+  <input id="Button1" type="button" value="button" /><br />
+</body>
+</html>
